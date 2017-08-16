@@ -36,7 +36,7 @@ def lxml_scraper(html):
 
 def main():
     times = {}
-    html = urllib2.urlopen('http://example.webscraping.com/view/United-Kingdom-239').read()
+    html = urllib2.urlopen('http://example.webscraping.com/places/default/view/United-Kingdom-239').read()
     NUM_ITERATIONS = 1000 # number of times to test each scraper
     for name, scraper in ('Regular expressions', regex_scraper), ('Beautiful Soup', beautiful_soup_scraper), ('Lxml', lxml_scraper):
         times[name] = []

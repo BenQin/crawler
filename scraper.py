@@ -16,11 +16,13 @@ def bs_scraper(html):
     results = {}
     for field in FIELDS:
         #results[field] = soup.find('table').find('tr', id='places_%s__row' % field).find('tr', class_='w2p_fw').text
-        #results[field] = soup.find('table').find('tr', id='places_{}__row'.format(field)).find('tr', class_='w2p_fw').text
-	tb = soup.find('table')
-	tr = tb.find('tr', id='places_{}__row'.format(field))
-	trclass = tr.find(attrs={'class':'w2p_fw'}).text #fault!!!
-	results[field] = trclass.text
+        #results[field] = soup.find('table').find('tr', id='places_{}__row'.format(field)).find('td', class_='w2p_fw').text
+        #results[field] = soup.find('table').find('tr', id='places_{}__row'.format(field)).find    ('td', class_='w2p_fw').text
+	    tb = soup.find('table')
+	    tr = tb.find('tr', id='places_{}__row'.format(field))
+	    #td = tr.find('td', class_='w2p_fw')#fault!!!
+	    td = tr.find(attrs={'class':'w2p_fw'})#fault!!!
+	    results[field] = td.text
     return results
 
 import lxml.html
