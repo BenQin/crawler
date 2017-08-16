@@ -19,7 +19,7 @@ def bs_scraper(html):
         #results[field] = soup.find('table').find('tr', id='places_{}__row'.format(field)).find('tr', class_='w2p_fw').text
 	tb = soup.find('table')
 	tr = tb.find('tr', id='places_{}__row'.format(field))
-	trclass = tr.find('tr', class='w2p_fw').text #fault!!!
+	trclass = tr.find(attrs={'class':'w2p_fw'}).text #fault!!!
 	results[field] = trclass.text
     return results
 

@@ -73,14 +73,14 @@ def crawl_id_traverse():
     num_errors = 0
     for page in itertools.count(1):
         url = 'http://example.webscraping.com/view/%d' % page
-	html = download(url)
-	if html is None:
-	    num_errors += 1
-	    if num_errors == max_errors:
-	        break
-	else:
-	    num_errors = 0
-	    #print html
+        html = download(url)
+        if html is None:
+	        num_errors += 1
+	        if num_errors == max_errors:
+	            break
+        else:
+	        num_errors = 0
+	        #print html
 
 def link_crawler(seed_url, link_regex, user_agent='GoodCrawler', max_depth=2):
     '''Crawl from the given seed URL following links matched by link_regex
