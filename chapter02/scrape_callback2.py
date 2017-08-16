@@ -8,7 +8,7 @@ from link_crawler import link_crawler
 
 
 
-class ScrapeCallback:
+class ScrapeCallback(object):
     def __init__(self):
         self.writer = csv.writer(open('countries.csv', 'w'))
         self.fields = ('area', 'population', 'iso', 'country', 'capital', 'continent', 'tld', 'currency_code', 'currency_name', 'phone', 'postal_code_format', 'postal_code_regex', 'languages', 'neighbours')
@@ -24,4 +24,4 @@ class ScrapeCallback:
 
 
 if __name__ == '__main__':
-    link_crawler('http://example.webscraping.com/', '/(index|view)', scrape_callback=ScrapeCallback())
+    link_crawler('http://example.webscraping.com/places/default', '/(index|view)', scrape_callback=ScrapeCallback())

@@ -17,5 +17,5 @@ def scrape_callback(url, html):
 
 
 if __name__ == '__main__':
-    link_crawler('http://example.webscraping.com/', '/(index|view)', scrape_callback=scrape_callback)
+    link_crawler('http://example.webscraping.com/places/default', '/(index|view)', scrape_callback=scrape_callback)
 
