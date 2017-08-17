@@ -15,7 +15,7 @@ class ScrapeCallback(object):
         self.writer.writerow(self.fields)
 
     def __call__(self, url, html):
-        if re.search('/view/', url):
+        if re.search('com/places/default/view/', url):
             tree = lxml.html.fromstring(html)
             row = []
             for field in self.fields:

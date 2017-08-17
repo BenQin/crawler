@@ -10,7 +10,7 @@ FIELDS = ('area', 'population', 'iso', 'country', 'capital', 'continent', 'tld',
 
 
 def scrape_callback(url, html):
-    if re.search('/view/', url):
+    if re.search('com/places/default/view/', url):
         tree = lxml.html.fromstring(html)
         row = [tree.cssselect('table > tr#places_{}__row > td.w2p_fw'.format(field))[0].text_content() for field in FIELDS]
         print url, row
