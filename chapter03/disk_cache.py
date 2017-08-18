@@ -120,4 +120,4 @@ class DiskCache:
 
 
 if __name__ == '__main__':
-    link_crawler('http://example.webscraping.com/', '/(index|view)', cache=DiskCache())
+    link_crawler('http://example.webscraping.com/places/default/', '/(view|index)', cache=DiskCache())

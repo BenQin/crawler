@@ -33,7 +33,7 @@ def link_crawler(seed_url, link_regex=None, delay=5, max_depth=-1, max_urls=-1, 
                 # can still crawl further
                 if link_regex:
                     # filter for links matching our regular expression
-                    links.extend(link for link in get_links(html) if re.match(link_regex, link))
+                    links.extend(link for link in get_links(html) if re.search(link_regex, link))
 
                 for link in links:
                     link = normalize(seed_url, link)
@@ -86,5 +86,5 @@ def get_links(html):
 
 
 if __name__ == '__main__':
-    link_crawler('http://example.webscraping.com', '/(index|view)', delay=0, num_retries=1, user_agent='BadCrawler')
-    link_crawler('http://example.webscraping.com', '/(index|view)', delay=0, num_retries=1, max_depth=1, user_agent='GoodCrawler')
+    link_crawler('http://example.webscraping.com/places/default', '/(index|view)', delay=0, num_retries=1, user_agent='BadCrawler')
+    link_crawler('http://example.webscraping.com/places/default', '/(index|view)', delay=0, num_retries=1,user_agent='GoodCrawler')
